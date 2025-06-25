@@ -1,0 +1,169 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #121212;
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenedor del chat */
+.chat-container {
+  background: #1f1f1f;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #00ff99;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Encabezado */
+.chat-header {
+  background-color: #00ff99;
+  color: #000;
+  padding: 1rem;
+  text-align: center;
+}
+
+.chat-header h1 {
+  font-size: 1.5rem;
+}
+
+.chat-header p {
+  font-size: 0.9rem;
+}
+
+/* Caja de mensajes */
+.chat-box {
+  padding: 1rem;
+  height: 300px;
+  overflow-y: auto;
+  background-color: #181818;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.message.user {
+  align-items: flex-end;
+}
+
+.message.bot {
+  align-items: flex-start;
+}
+
+/* Burbujas */
+.bubble {
+  max-width: 75%;
+  padding: 10px 15px;
+  border-radius: 16px;
+  font-size: 14px;
+  line-height: 1.4;
+  word-wrap: break-word;
+  position: relative;
+}
+
+.user-bubble {
+  background-color: rgba(97, 218, 251, 0.1);
+  border: 1px solid #61dafb;
+  color: #61dafb;
+  border-bottom-right-radius: 0;
+}
+
+.bot-bubble {
+  background-color: rgba(144, 238, 144, 0.1);
+  border: 1px solid #90ee90;
+  color: #90ee90;
+  border-bottom-left-radius: 0;
+}
+
+/* Entrada del usuario */
+.chat-input {
+  display: flex;
+  border-top: 1px solid #333;
+  background-color: #121212;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 1rem;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+}
+
+.chat-input button {
+  background-color: #00ff99;
+  border: none;
+  padding: 1rem 1.2rem;
+  cursor: pointer;
+  color: #000;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.chat-input button:hover {
+  background-color: #00cc7a;
+}
+
+/* Scroll personalizado */
+.chat-box::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-box::-webkit-scrollbar-thumb {
+  background-color: #00ff99;
+  border-radius: 3px;
+}
+
+/* Botcito flotante */
+.bot-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  z-index: 1000;
+}
+
+.bot-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.bot-icon img:hover {
+  transform: scale(1.1);
+}
+
+/* Escribiendo... */
+.typing .dot {
+  animation: blink 1s infinite;
+  display: inline-block;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0% { opacity: 0.2; }
+  20% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
